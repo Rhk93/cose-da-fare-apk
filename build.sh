@@ -36,7 +36,7 @@ EOF2
 
 npx cap add android
 
-# ---------- icona: lista di cose da fare con spunta ----------
+# ---------- icona: spunta bianca su verde ----------
 cat > icons.js <<'EOF2'
 const sharp = require('sharp');
 const fs = require('fs');
@@ -44,21 +44,13 @@ const path = require('path');
 const res = 'android/app/src/main/res';
 
 const rows = `
-<g>
-  <circle cx="37" cy="40" r="7.5" fill="#fff"/>
-  <path d="M33.3 40.2l2.8 2.8 4.8-5.2" fill="none" stroke="#25a244" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="50" y="37" width="24" height="6" rx="3" fill="#fff"/>
-  <circle cx="37" cy="56" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>
-  <rect x="50" y="53" width="24" height="6" rx="3" fill="#fff" opacity=".85"/>
-  <circle cx="37" cy="72" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>
-  <rect x="50" y="69" width="17" height="6" rx="3" fill="#fff" opacity=".85"/>
-</g>`;
+<path d="M28 56l19 19 33-40" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`;
 const defs = `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4cd964"/><stop offset="1" stop-color="#25a244"/></linearGradient></defs>`;
 const svg = (size, body) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 108 108">${defs}${body}</svg>`);
 const scaled = (k) => `<g transform="translate(54 54) scale(${k}) translate(-54 -54)">${rows}</g>`;
 
-const legacy = (s) => svg(s, `<rect width="108" height="108" rx="24" fill="url(#g)"/>${scaled(1.25)}`);
-const round = (s) => svg(s, `<circle cx="54" cy="54" r="54" fill="url(#g)"/>${scaled(1.2)}`);
+const legacy = (s) => svg(s, `<rect width="108" height="108" rx="26" fill="url(#g)"/>${scaled(1.12)}`);
+const round = (s) => svg(s, `<circle cx="54" cy="54" r="54" fill="url(#g)"/>${scaled(1.05)}`);
 const foreground = (s) => svg(s, scaled(1.1));
 
 const dens = { mdpi: [48, 108], hdpi: [72, 162], xhdpi: [96, 216], xxhdpi: [144, 324], xxxhdpi: [192, 432] };
