@@ -49,9 +49,9 @@ const defs = `<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop off
 const svg = (size, body) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 108 108">${defs}${body}</svg>`);
 const scaled = (k) => `<g transform="translate(54 54) scale(${k}) translate(-54 -54)">${rows}</g>`;
 
-const legacy = (s) => svg(s, `<rect width="108" height="108" rx="26" fill="url(#g)"/>${scaled(1.12)}`);
-const round = (s) => svg(s, `<circle cx="54" cy="54" r="54" fill="url(#g)"/>${scaled(1.05)}`);
-const foreground = (s) => svg(s, scaled(1.1));
+const legacy = (s) => svg(s, `<rect width="108" height="108" rx="26" fill="url(#g)"/>${scaled(0.78)}`);
+const round = (s) => svg(s, `<circle cx="54" cy="54" r="54" fill="url(#g)"/>${scaled(0.72)}`);
+const foreground = (s) => svg(s, scaled(0.72));
 
 const dens = { mdpi: [48, 108], hdpi: [72, 162], xhdpi: [96, 216], xxhdpi: [144, 324], xxxhdpi: [192, 432] };
 
